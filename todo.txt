@@ -1,0 +1,17 @@
+item randomizasyonu
+bg
+
+vuruşta flicker (adam ve örümcek ve ölümsüzlük)
+örümcekler vurulunca ölmezse geri tep
+p1 mavi olmasın
+merkeze collision
+itemlara threshold
+düşman içindeyse vursun
+
+
+
+ortaya bir dönence
+yarsa tırtıl yılan fare vs
+ana ekran
+
+yetişirse gerçek nes
