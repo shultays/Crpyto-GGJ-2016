@@ -10,9 +10,6 @@
 // previous versions were created since mid-2011, there were many updates
 
 
-void __fastcall__ bankswitch(unsigned char bank);
-
-
 //set bg and spr palettes, data is 32 bytes array
 
 void __fastcall__ pal_all(const char *data);

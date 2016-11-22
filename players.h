@@ -45,29 +45,31 @@ void __fastcall__ tick_players(void)
             spr = oam_spr(0x10, 0x20, 0x64, 0x0, spr);
         break;
     }
-    switch(player_hp[1]){
-        default:
-            spr = oam_spr(0xE8, 0x10, 0x60, 0x1, spr);
-            spr = oam_spr(0xE8, 0x20, 0x60, 0x1, spr);
-        break;
-        case 3:
-            spr = oam_spr(0xE8, 0x10, 0x62, 0x1, spr);
-            spr = oam_spr(0xE8, 0x20, 0x60, 0x1, spr);
-        break;
-        case 2:
-            spr = oam_spr(0xE8, 0x10, 0x64, 0x1, spr);
-            spr = oam_spr(0xE8, 0x20, 0x60, 0x1, spr);
-        break;
-        case 1:
-            spr = oam_spr(0xE8, 0x10, 0x64, 0x1, spr);
-            spr = oam_spr(0xE8, 0x20, 0x62, 0x1, spr);
-        break;
-        case 0:
-            spr = oam_spr(0xE8, 0x10, 0x64, 0x1, spr);
-            spr = oam_spr(0xE8, 0x20, 0x64, 0x1, spr);
-        break;
+    if(!single_player)
+    {
+        switch(player_hp[1]){
+            default:
+                spr = oam_spr(0xE8, 0x10, 0x60, 0x1, spr);
+                spr = oam_spr(0xE8, 0x20, 0x60, 0x1, spr);
+            break;
+            case 3:
+                spr = oam_spr(0xE8, 0x10, 0x62, 0x1, spr);
+                spr = oam_spr(0xE8, 0x20, 0x60, 0x1, spr);
+            break;
+            case 2:
+                spr = oam_spr(0xE8, 0x10, 0x64, 0x1, spr);
+                spr = oam_spr(0xE8, 0x20, 0x60, 0x1, spr);
+            break;
+            case 1:
+                spr = oam_spr(0xE8, 0x10, 0x64, 0x1, spr);
+                spr = oam_spr(0xE8, 0x20, 0x62, 0x1, spr);
+            break;
+            case 0:
+                spr = oam_spr(0xE8, 0x10, 0x64, 0x1, spr);
+                spr = oam_spr(0xE8, 0x20, 0x64, 0x1, spr);
+            break;
+        }
     }
-    
     to_scroll_x = 0;
     to_scroll_y = 0;
     
@@ -85,7 +87,6 @@ void __fastcall__ tick_players(void)
             {
                 pal_col(16+(i<<2)+3, 0x20);
                 pal_col(16+(i<<2)+1, 0xD);
-                
             }
         }
         if(player_hp[i] == 0){

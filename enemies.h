@@ -102,6 +102,7 @@ void __fastcall__ tick_enemies(void)
     {
 		if(enemies_health[i] == 0 && (frame&7) == i)
 		{
+            enemy_attack_timer[i] = 60;
 			enemies_x[i] = enemy_spawn_points_x[SELECTED_SPAWN_POINT];
 			enemies_y[i] = enemy_spawn_points_y[SELECTED_SPAWN_POINT];
             enemy_push_timer[i] = 0;
@@ -258,9 +259,13 @@ void __fastcall__ tick_enemies(void)
         
         
         COLLISION_RESULT = 0;
-        for(j=0; j<2; j++){
-            if((frame&enemy_damage_modifier) == 0)
-            {
+        if(enemy_attack_timer[i])
+        {
+            --enemy_attack_timer[i];
+        }
+        else
+        {
+            for(j=0; j<2; j++){
                 if(enemies_x[i] - 5 < player_x[j] && enemies_x[i] + 5 > player_x[j])
                 {
                     if(enemies_y[i] - 5 < player_y[j] && enemies_y[i] + 5 > player_y[j])
@@ -273,6 +278,7 @@ void __fastcall__ tick_enemies(void)
 							
 							// Took Damage SFX
 							sfx_play(0, 1);
+                            enemy_attack_timer[i] = enemy_damage_modifier;
                         }
                         if(player_hp[j] == 0 && enemies_enemy[i] == j){
                             enemies_enemy[i] = 1-enemies_enemy[i];

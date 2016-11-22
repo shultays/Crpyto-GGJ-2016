@@ -47,6 +47,7 @@ static unsigned char enemy_push_timer[8];
 static unsigned char enemy_push_dir[8];
 
 static unsigned char enemies_type[8];
+static unsigned char enemy_attack_timer[8];
 
 static unsigned char player_carry[2];
 static unsigned char player_carry_dir[2];
@@ -68,3 +69,5 @@ static unsigned char next_level;
 static unsigned char enemy_damage_modifier;
 
 static unsigned char spawn_hp;
+
+static unsigned char single_player = 1;
